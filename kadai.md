@@ -1,13 +1,3 @@
-# 課題1 レポート
-
-aa83988848 薗田光太郎
-
-## 課題
-
-N人の身長の分布の四分位，外れ値を表示せよ．また，続いて男女別々に四分位と外れ値を表示し，男女の分布に差があるか考察せよ．
-
-
-
 たくさんいる友達の中から14人を適当に選んで身長をきいてみた．
 
 |subject | gender | height (cm) |
@@ -43,36 +33,4 @@ N人の身長の分布の四分位，外れ値を表示せよ．また，続い�
 [1]:Reference.md
 [2]:sample/heights_male.csv
 [3]:sample/heights_female.csv
-
-
-
-出力イメージは，
-
-```
-==Whole== 
-1Q: 155.0
-median: 164.5
-3Q: 167.2
-outlier: 190.6
-
-==Male==
-1Q: 156.0
-median: 164.5
-3Q: 167.2
-outlier: 190.6
-
-==Female==
-1Q: 155.0
-median: 164.5
-3Q: 167.2
-outlier: 190.6
-
-==Result==
-D = 0.7
-Male is taller than Female
-```
-
-## ソースコードの説明
-
-## 修正履歴
 
