@@ -30,7 +30,7 @@
 [7人女性身長標本データ][3]
 
 
-[1]:Reference.md
+[1]:Reference/quantile.md
 [2]:sample/heights_male.csv
 [3]:sample/heights_female.csv
 
