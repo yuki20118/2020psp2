@@ -1,0 +1,24 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "gcc.exe build active file",
+            "command": "c:\\TDM-GCC-64\\bin\\gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-W",
+                "-Wall",
+                "-O5",
+                "-ggdb",
+                "-fexec-charset=CP932"
+            ],
+            "options": {
+                "cwd": "c:\\TDM-GCC-64\\bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
