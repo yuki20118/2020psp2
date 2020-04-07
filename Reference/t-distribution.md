@@ -26,7 +26,7 @@
 
 <img src="/Reference/tex/5b51bd2e6f329245d425b8002d7cf942.svg?invert_in_darkmode&sanitize=true" align=middle width=12.397274999999992pt height=22.465723500000017pt/>における<img src="/Reference/tex/e6718aa5499c31af3ff15c3c594a7854.svg?invert_in_darkmode&sanitize=true" align=middle width=16.535428799999988pt height=26.76175259999998pt/>を<img src="/Reference/tex/55ab6111c6bbe722ee25eb4469ce9c7a.svg?invert_in_darkmode&sanitize=true" align=middle width=15.96281939999999pt height=26.76175259999998pt/>に変えたものになると使い勝手がよさそうで，それを<img src="/Reference/tex/2f118ee06d05f3c2d98361d9c30e38ce.svg?invert_in_darkmode&sanitize=true" align=middle width=11.889314249999991pt height=22.465723500000017pt/>とします．
 
-<p align="center"><img src="/Reference/tex/f3380d9ba155e3465e10370e94f22586.svg?invert_in_darkmode&sanitize=true" align=middle width=193.4945562pt height=50.79200279999999pt/></p>
+<p align="center"><img src="/Reference/tex/52bc66e9a785b4030e1d71e297b79703.svg?invert_in_darkmode&sanitize=true" align=middle width=149.8896696pt height=50.79200279999999pt/></p>
 
 ## 2群の平均の差の有無についての検定
 
