@@ -19,7 +19,10 @@ $$
 $Z$と$W$を用いて$\sigma^2$を相殺して消したものです．
 
 $$
-Z = \frac{\bar{x}-\mu}{\sqrt{\frac{\sigma^2}{N}}} \quad \sim Norm(0,1)\\
+Z = \frac{\bar{x}-\mu}{\sqrt{\frac{\sigma^2}{N}}} \quad \sim Norm(0,1)
+$$
+
+$$
 W = \frac{1}{\sigma^2}\sum_{i=1}^{N}(x_i-\bar{x})^2 \quad \sim \chi^2(N-1)
 $$
 
@@ -31,15 +34,15 @@ $$
 
 となり，$Z$を$W$の2乗根で割ると，$\sigma^2$が消えます．
 $$
-\frac{Z}{\sqrt{W}} = \frac{\frac{\bar{x}-\mu}{\sqrt{\frac{\sigma^2}{N}}}}{\sqrt{(N-1)\frac{u^2}{\sigma^2}}}\\
-\quad = \frac{\frac{\sqrt{N}(\bar{x}-\mu)}{\sigma}}{\frac{\sqrt{N-1}u}{\sigma}} \\
-\quad = \frac{\sqrt{N}(\bar{x}-\mu)}{\sqrt{N-1}u}
+\frac{Z}{\sqrt{W}} = \frac{\frac{\bar{x}-\mu}{\sqrt{\frac{\sigma^2}{N}}}}{\sqrt{(N-1)\frac{u^2}{\sigma^2}}}
+= \frac{\frac{\sqrt{N}(\bar{x}-\mu)}{\sigma}}{\frac{\sqrt{N-1}u}{\sigma}} 
+= \frac{\sqrt{N}(\bar{x}-\mu)}{\sqrt{N-1}u}
 $$
 
 $Z$における$\sigma^2$を$u^2$に変えたものになると使い勝手がよさそうで，それを$T$とします．
 
 $$
-T = \frac{\bar{x}-\mu}{\sqrt{\frac{u^2}{N}}}\\
+T = \frac{\bar{x}-\mu}{\sqrt{\frac{u^2}{N}}}
   = \frac{1}{\sqrt{N-1}}\frac{Z}{\sqrt{W}}
 $$
 
