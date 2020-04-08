@@ -36,3 +36,4 @@ $$u^2=\dfrac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^2=\dfrac{N}{N-1}s^2
 
 ## 修正履歴
 
+説明は「かきくけこ」だ！
