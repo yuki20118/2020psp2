@@ -21,7 +21,7 @@ aa83988848 薗田光太郎
     return (double)(rand()+1)/(RAND_MAX+2);
   }
   
-  double r_norm(void)
+  double r_stdnorm(void)
   {  
     return sqrt( -2.0*log(r_unif()) ) * sin( 2.0*M_PI*r_unif() );
   } 
