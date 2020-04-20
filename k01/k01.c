@@ -3,15 +3,16 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val,double ave)
-extern double var_online()
+extern double ave_online(double val,double ave,int n);
+extern double var_online(double val,double ave,double square_ave,int n);
 
 int main(void)
 {
-    double val;
+    double val,ave,square_ave;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
+    int n=0;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -26,12 +27,10 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-
-
+        n=n++;
+        ave_online(val,ave,n);
+        var_online(val,ave,square_ave,n);
     
-
-
-
     }
 
     if(fclose(fp) == EOF){
@@ -45,3 +44,22 @@ int main(void)
 
 }
 
+
+#include <stdio.h>
+
+double ave_online(double val,double ave,int n)
+{
+    ave=(((n-1)*ave)/n + (val/n));
+
+    return(val,ave,n);
+}
+
+#include <stdio.h>
+#include <math.h>
+
+double var_online(double val,double ave,double square_ave,int n)
+{
+    square_ave = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - sqrt((n-1)*ave/n + val/n);
+
+    return(val,ave,square_ave,n);
+}
