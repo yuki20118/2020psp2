@@ -4,15 +4,15 @@
             "name": "Win64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "c:/TDM-GCC-64/include/**"
+                "c:/TDM-GCC-32/include/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "c:\\\\TDM-GCC-64\\\\bin\\\\gcc.exe",
+            "intelliSenseMode": "gcc-x86",
+            "compilerPath": "c:\\\\TDM-GCC-32\\\\bin\\\\gcc.exe",
             "cStandard": "c11",
             "compilerArgs": [
                 "-W",

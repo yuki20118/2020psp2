@@ -38,6 +38,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
+printf("ave = %lf/n ",ave);
+printf("square_ave = %lf/n",square_ave);
 
     return 0;
 
