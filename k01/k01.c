@@ -27,7 +27,7 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        n=n++;
+        n++;
         ave_online(val,ave,n);
         var_online(val,ave,square_ave,n);
     
@@ -47,21 +47,20 @@ printf("square_ave = %lf/n",square_ave);
 }
 
 
-#include <stdio.h>
 
 double ave_online(double val,double ave,int n)
 {
     ave=(((n-1)*ave)/n + (val/n));
 
-    return(val,ave,n);
+    return ave;
 }
 
-#include <stdio.h>
+
 #include <math.h>
 
 double var_online(double val,double ave,double square_ave,int n)
 {
     square_ave = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - sqrt((n-1)*ave/n + val/n);
 
-    return(val,ave,square_ave,n);
+    return square_ave;
 }
