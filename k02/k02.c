@@ -7,7 +7,7 @@ extern double p_stdnorm(double z);
 
 int main(void)
 {
-    double val;
+    double val,muA,muB,sigmaA,sigmaB,y;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
