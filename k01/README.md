@@ -127,4 +127,4 @@ population variance (estimated)：
   すでに関数内のaveは「n-1番目までの平均」、valは「n番目の要素」
   という意味を持っているので[]は不要です。
 
-- L65 #include <math.h> はL4で書いているので不要です。
+- L65 #include <math.h> はL4で書いているので不要です。　
