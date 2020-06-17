@@ -8,7 +8,7 @@ extern double var_online(double val,double ave,double square_ave,int n);
 
 int main(void)
 {
-    double val,ave,square_ave;
+    double val,ave,square_ave,u2,ave_all,var_all;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -38,8 +38,14 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
+u2 = n*var[n]/(n-1);
+ave_all = ave + sqrt(u2/n) ;
+var_all = u2 ;
+
 printf("ave = %lf/n ",ave);
-printf("square_ave = %lf/n",square_ave);
+printf("var = %lf/n",var);
+printf("ave_all = %lf/n",ave_all);
+printf("var_all = %lf/n",var_all);
 
     return 0;
 
@@ -50,7 +56,7 @@ printf("square_ave = %lf/n",square_ave);
 
 double ave_online(double val,double ave,int n)
 {
-    ave=(((n-1)*ave)/n + (val/n));
+    ave[n]=(((n-1)*ave[n-1])/n + (val[n]/n));
 
     return ave;
 }
@@ -60,7 +66,7 @@ double ave_online(double val,double ave,int n)
 
 double var_online(double val,double ave,double square_ave,int n)
 {
-    square_ave = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - sqrt((n-1)*ave/n + val/n);
+    var[n] = (((n-1)*sqrt(ave[n]))/n + sqrt(val[n])/n) - sqrt((n-1)*ave[n]/n + val[n]/n);
 
-    return square_ave;
+    return var;
 }
