@@ -7,7 +7,7 @@ extern double p_stdnorm(double z);
 
 int main(void)
 {
-    double val,muA,muB,sigmaA,sigmaB,y;
+    double val,mu,sigma,n,max_val,min_val,z;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -26,12 +26,14 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-
-
-    
-
-
-
+        z=(val-mu)/sigma;
+        p_stdnorm(z);
+        if(max_val<val){
+            max_val = val;
+        }
+        if(min_val>val){
+            min_val = val;
+        }
     }
 
     if(fclose(fp) == EOF){
