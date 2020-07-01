@@ -8,11 +8,11 @@ extern double var_online(double val,double ave,double square_ave,int n);
 
 int main(void)
 {
-    double val,ave,square_ave,u2,ave_all,var_all;
+    double val,ave,square_ave,u2,ave_all,var_all,ave_n,var_n;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    int n=0;
+    int n=1;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -27,10 +27,9 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
+        ave_n=ave_online(val,ave,n);
+        var_n=var_online(val,ave,square_ave,n);
         n++;
-        ave_online(val,ave,n);
-        var_online(val,ave,square_ave,n);
-    
     }
 
     if(fclose(fp) == EOF){
@@ -38,11 +37,11 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-u2 = n*var[n]/(n-1);
-ave_all = ave + sqrt(u2/n) ;
+u2 = n*val/(n-1);
+ave_all = ave_n + sqrt(u2/n) ;
 var_all = u2 ;
 
-printf("ave = %lf/n ",ave);
+printf("ave = %lf/n ",ave_n);
 printf("var = %lf/n",var);
 printf("ave_all = %lf/n",ave_all);
 printf("var_all = %lf/n",var_all);
@@ -54,19 +53,15 @@ printf("var_all = %lf/n",var_all);
 
 
 
-double ave_online(double val,double ave,int n)
+double ave_online(val,ave,n)
 {
-    ave[n]=(((n-1)*ave[n-1])/n + (val[n]/n));
-
-    return ave;
+   return ((n-1)*ave)/n + (val/n);
 }
 
 
-#include <math.h>
-
-double var_online(double val,double ave,double square_ave,int n)
+double var_online(val,ave,square_ave,n)
 {
-    var[n] = (((n-1)*sqrt(ave[n]))/n + sqrt(val[n])/n) - sqrt((n-1)*ave[n]/n + val[n]/n);
+    var = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - sqrt((n-1)*ave/n + val/n);
 
     return var;
 }
