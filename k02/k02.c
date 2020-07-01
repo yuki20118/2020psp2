@@ -28,11 +28,11 @@ int main(void)
         sscanf(buf,"%lf",&val);
         z=(val-mu)/sigma;
         p_stdnorm(z);
-        if(max_val<val){
-            max_val = val;
+        if(max_val < z){
+            max_val = z;
         }
-        if(min_val>val){
-            min_val = val;
+        if(min_val > z){
+            min_val = z;
         }
     }
 
@@ -45,8 +45,6 @@ int main(void)
     printf("L_B: %f\n",min_val);
 
     return 0;
-
-
 }
 
 double p_stdnorm(double z)

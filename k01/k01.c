@@ -42,7 +42,7 @@ ave_all = ave_n + sqrt(u2/n) ;
 var_all = u2 ;
 
 printf("ave = %lf/n ",ave_n);
-printf("var = %lf/n",var);
+printf("var = %lf/n",var_n);
 printf("ave_all = %lf/n",ave_all);
 printf("var_all = %lf/n",var_all);
 
@@ -55,13 +55,15 @@ printf("var_all = %lf/n",var_all);
 
 double ave_online(val,ave,n)
 {
-   return ((n-1)*ave)/n + (val/n);
+   ave_n = ((n-1)*ave)/n + (val/n);
+   
+   return ave_n;
 }
 
 
 double var_online(val,ave,square_ave,n)
 {
-    var = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - sqrt((n-1)*ave/n + val/n);
-
-    return var;
+    var_n = (((n-1)*sqrt(ave))/n + sqrt(val)/n) - (sqrt((n-1)*ave/n + val/n));
+    
+    return var_n;
 }
