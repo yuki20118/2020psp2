@@ -8,11 +8,11 @@ extern double var_online(double val,double ave,double square_ave,int n);
 
 int main(void)
 {
-    double val,ave,square_ave,u2,ave_n,var_n,ave_n1,square_ave_n1,gap;
+    double val,ave,square_ave,u2,ave_n,var_n,ave_n1,square_ave_n1,gap,st_e;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    int n=0;
+    int n=1;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -29,13 +29,18 @@ int main(void)
     square_ave_n1=0;
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        n++;
+        
         ave_n=ave_online(val,ave_n1,n);
         square_ave=ave_online(pow(val,2),square_ave_n1,n);
-        var_n=var_online(val,ave_n1,square_ave,n);
+        var_n=var_online(val,ave_n1,square_ave_n1,n);
         
         ave_n1 = ave_n;
         square_ave_n1=square_ave;
+
+        u2 = n*var_n/(n-1);
+        gap = sqrt(u2/n) ;
+
+        n++;
     }
 
     if(fclose(fp) == EOF){
@@ -43,13 +48,12 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-u2 = n*var_n/(n-1);
-gap = sqrt(u2/n) ;
 
 
-printf("ave = %.2lf\n ",ave_n);
+
+printf("ave = %.2lf\n",ave_n);
 printf("var = %.2lf\n",var_n);
-printf("ave_all = %.2lf±%.2lf\n",ave_n,gap);
+printf("ave_all = %.2lf+-%.2lf\n",ave_n,gap);
 printf("var_all = %.2lf\n",u2);
 
     return 0;

@@ -7,7 +7,7 @@ extern double p_stdnorm(double z);
 
 int main(void)
 {
-    double val,muA,muB,sigmaA,sigmaB,n,max_val,min_val,z;
+    double val,muA=170.8,muB=169.7,sigmaA=5.43,sigmaB=5.5,n=1,zA,zB,L_A,L_a_n,L_a_n1,L_B,L_b_n,L_b_n1;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -26,14 +26,20 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        z=(val-mu)/sigma;
-        p_stdnorm(z);
-        if(max_val < z){
-            max_val = z;
-        }
-        if(min_val > z){
-            min_val = z;
-        }
+
+        zA=(val - muA)/sigmaA;
+        zB=(val - muB)/sigmaB;
+        
+        L_a_n = p_stdnorm(zA);
+        L_b_n = p_stdnorm(zB);
+        
+        L_A = L_a_n * L_a_n1;
+        L_B = L_b_n * L_b_n1;
+        
+        L_a_n1 = L_A;
+        L_b_n1 = L_B;
+
+        n++;
     }
 
     if(fclose(fp) == EOF){
@@ -41,8 +47,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("L_A: %f\n",max_val);
-    printf("L_B: %f\n",min_val);
+    printf("L_A: %f\n",L_A);
+    printf("L_B: %f\n",L_B);
 
     return 0;
 }
