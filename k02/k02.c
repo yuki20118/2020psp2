@@ -7,7 +7,7 @@ extern double p_stdnorm(double z);
 
 int main(void)
 {
-    double val,mu,sigma,n,max_val,min_val,z;
+    double val,muA,muB,sigmaA,sigmaB,n,max_val,min_val,z;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -51,4 +51,4 @@ double p_stdnorm(double z)
 {
     return 1/sqrt(2*M_PI) * exp(-z*z/2);
 }
-
+    
