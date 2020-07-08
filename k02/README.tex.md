@@ -24,15 +24,18 @@ $$
 と計算できる．$p$は仮定した確率密度関数で，$\theta$はその母数．$p$が正規分布なら，$\theta$は，平均$\mu$と分散$\sigma^2$である．
 
 ## ソースコードの説明
-l.29　zへ標準化　
-l.31~l.36 max_val,min_valへ結果を代入
+l.30,31　zへ標準化　
+l.33,34　La_n,Lb_nに正規分布においての出現確率を計算　
+l.36,37　尤度の計算
+ 
+
 
 
 ## 入出力結果
 
 ```
-Likelihood for A：
-Likelihood for B：
+Likelihood for A: 0.000006
+Likelihood for B: 0.000002
 ```
 
 ## 修正履歴

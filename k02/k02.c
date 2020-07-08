@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#define USE_MATH_DEFINDS
 
 extern double p_stdnorm(double z);
 
 int main(void)
 {
-    double val,muA=170.8,muB=169.7,sigmaA=5.43,sigmaB=5.5,n=1,zA,zB,L_A,L_a_n,L_a_n1,L_B,L_b_n,L_b_n1;
+    double val,n=1,muA=170.8,sigmaA=5.43,zA,L_A,La_n,La_n1=1;
+    double muB=169.7,sigmaB=5.5,zB,L_B,Lb_n,Lb_n1=1;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -30,14 +32,14 @@ int main(void)
         zA=(val - muA)/sigmaA;
         zB=(val - muB)/sigmaB;
         
-        L_a_n = p_stdnorm(zA);
-        L_b_n = p_stdnorm(zB);
+        La_n = p_stdnorm(zA);
+        Lb_n = p_stdnorm(zB);
         
-        L_A = L_a_n * L_a_n1;
-        L_B = L_b_n * L_b_n1;
+        L_A = La_n * La_n1;
+        L_B = Lb_n * Lb_n1;
         
-        L_a_n1 = L_A;
-        L_b_n1 = L_B;
+        La_n1 = L_A;
+        Lb_n1 = L_B;
 
         n++;
     }
@@ -47,8 +49,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("L_A: %f\n",L_A);
-    printf("L_B: %f\n",L_B);
+    printf("Likelihood for A: %f\n",L_A);
+    printf("Likelihood for B: %f\n",L_B);
 
     return 0;
 }

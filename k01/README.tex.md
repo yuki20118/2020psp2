@@ -1,6 +1,6 @@
 # 課題1 レポート
 
-aa83988848 薗田光太郎
+bb35319042 藤田佑樹
 
 ## 課題
 
@@ -43,17 +43,30 @@ $$u^2=\dfrac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^2=\dfrac{N}{N-1}s^2
 
 ## ソースコードの説明
 
-あいうえお
+l.15 繰り返し回数をnとする。
+
+l.33 n回目の平均をave_nに代入
+l.34 n回目の2乗の平均をsquare_aveに代入
+l.35 n回目の分散をvar_nに代入
+
+l.37,38 n回目の平均と2乗の平均をn-1回目として次回使うためにave_n1,square_ave_n1に代入
+
+l.40 母集団の分散をu2に代入
+l.41 標準誤差をgapに代入
+
+l.66 n-1回目の平均とn回目の値を使ってn回目の平均をave_nに代入してave_nを返す。
+
+l.75 n回目の値とn-1回目の平均、n-1回目の2乗の平均を使ってn回目の分散を求め、var_nに代入してvar_nを返す。
 
 ## 入出力結果
 
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：
-sample variance：
-population mean (estimated)：
-population variance (estimated)：
+sample mean：173.89
+sample variance：25.36
+population mean (estimated)：173.89+-1.90
+population variance (estimated)：28.98
 ```
 
 ## 修正履歴
