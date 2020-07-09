@@ -63,10 +63,10 @@ l.75 n回目の値とn-1回目の平均、n-1回目の2乗の平均を使ってn
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：173.89
-sample variance：25.36
-population mean (estimated)：173.89+-1.90
-population variance (estimated)：28.98
+ave = 173.89
+var = 25.36
+ave_all = 173.89+-1.90
+var_all = 28.98
 ```
 
 ## 修正履歴
