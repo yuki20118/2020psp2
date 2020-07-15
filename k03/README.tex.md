@@ -110,3 +110,6 @@ Num of dummy data: 5
 [comment0708宮下]
 
 課題提出お疲れさまでした！修正点はありません。k03完了です。
+
+[comment #20200716 sonoda]
+- 課題3完了確認
