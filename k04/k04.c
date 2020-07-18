@@ -16,15 +16,16 @@ int main(void)
 {
     FILE*fp;
     char fname[FILENAME_MAX];
-    char buf[256],gender_mf;/* gender_mfは使いません。*/
-    int ID,gender,i=1;/* i=0（1番目）から始めます*/
+    char buf[256];/* gender_mfは使いません。*/
+    int ID,ID_data,gender,i=0;/* i=0（1番目）から始めます*/
     double height;
 
-    struct student_data detal;/* main外でstudent_dataと定義した構造体をmain内ではdetalとして扱います。
-    また、配列として扱うのでdetal[14]として人数分用意してください。*/
+    struct student_data detail[14];/* main外でstudent_dataと定義した構造体をmain内ではdetailとして扱います。
+    また、配列として扱うのでdetail[14]として人数分用意してください。*/
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
+    fgets(buf, sizeof(buf),fp);
     fname[strlen(fname)-1] = '\0';
     fp = fopen(fname,"r");
     if(fp==NULL){
@@ -33,10 +34,17 @@ int main(void)
     }
 
     /* fgets(buf, sizeof(buf),fp);  ←を追加してください。height.csvの１行目は項目名なので空読みします*/
+    fgets(buf, sizeof(buf),fp);
 
     while(fgets(buf,sizeof(buf),fp)!=NULL){
         sscanf(buf,"%d,%lf",&gender,&height);
-        //gender_mf = gender_data(gender,i); /*genderは数値のまま扱いprintfする際に文字にします。この行は不要です。*/
+        
+        detail[i].gender = gender;
+        detail[i].height = height;
+
+        i++;
+
+        /*genderは数値のまま扱いprintfする際に文字にします。この行は不要です。*/
         /* genderとheightを構造体に入れていきます。
         detal[i].gender = gender; という風に書きます。
         heightも同様に追加します。
@@ -53,40 +61,49 @@ int main(void)
         exit(EXIT_FAILURE);
     }
     printf("---\n");
+    
+
     /* このままだとi=14から始まるので0で初期化してください。*/
+    i=0;
 
     while(fgets(buf,sizeof(buf),fp)!=NULL){
         sscanf(buf,"%d",&ID);
-        /* ここはまだ構造体を創る途中です。以下print文は不要です。
-        if(student_data[i].ID==ID){
-            printf("ID : %d\n",ID);
-            printf("gender : %c\n",gender_mf);
-            printf("height : %lf\n",height);
-        }
-        else{
-            printf("No data \n");
-        }*/
-
+        /* ここはまだ構造体を創る途中です。以下print文は不要です。*/
         /* gender,heightと同様に構造体にIDを追加してください。*/
+
+        detail[i].ID = ID;
 
         i++;
     }
 
     /* ここから検索パートです*/
-    printf("Which ID's data do you want? :");
-    /* 手入力した値を探すので以下ファイル読み込みは不要です。
-    fgets(fname,sizeof(fname),stdin);
-    fname[strlen(fname)-1]='\0';
-    fp = fopen(fname,"r");
-    if(fp==NULL){
-        fputs("No data\n",stderr);
-        exit(EXIT_FAILURE);
-    }
-    else{
-        sscanf(buf,"%d",&ID);
-    }*/
+    printf("Which ID's data do you want? : ");
+    
     /* 手入力したIDをscanfで受け取ってください*/
+    scanf("%d",&ID_data);
+    
+    i=0;
+    while(i<=14){
+        if(detail[i].ID == ID_data){
+            if(detail[i].gender == 1){
+                printf("ID : %d\n",ID);
+                printf("gender : Male\n");
+                printf("height : %lf\n",height);
+            }
+            else if(detail[i].gender == 2){
+                printf("ID : %d\n",ID);
+                printf("gender : Female\n");
+                printf("height : %lf\n",height);
+            }
+            return 0;
+        }
+        
+        i++;
 
+    }
+    
+    printf("No data");
+    return 0;
     /* IDを構造体から探します。
     このままだとi=14から始まるので0で初期化してください。
     while文で　標本の数(14周)する
@@ -101,15 +118,3 @@ int main(void)
     return 0;
     */
 }
-
-
-/* 不要です。
-char gender_data(gender,i)
-{
-    if(detal[i].gender==1){
-        return "male";
-    }
-    else if(detal[i].gender==2){
-        return "female";
-    }
-}*/
