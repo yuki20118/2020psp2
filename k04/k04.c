@@ -10,7 +10,6 @@ struct student_data
     int ID;
 };
 
-//extern char gender_data(int gender,int i); この行は不要です。
 
 int main(void)
 {
@@ -25,7 +24,7 @@ int main(void)
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
-    fgets(buf, sizeof(buf),fp);
+    
     fname[strlen(fname)-1] = '\0';
     fp = fopen(fname,"r");
     if(fp==NULL){
@@ -86,14 +85,14 @@ int main(void)
     while(i<=14){
         if(detail[i].ID == ID_data){
             if(detail[i].gender == 1){
-                printf("ID : %d\n",ID);
+                printf("ID : %d\n",detail[i].ID);
                 printf("gender : Male\n");
-                printf("height : %lf\n",height);
+                printf("height : %lf\n",detail[i].height);
             }
             else if(detail[i].gender == 2){
-                printf("ID : %d\n",ID);
+                printf("ID : %d\n",detail[i].ID);
                 printf("gender : Female\n");
-                printf("height : %lf\n",height);
+                printf("height : %lf\n",detail[i].height);
             }
             return 0;
         }
