@@ -59,7 +59,7 @@ int main(void)
         fputs("File open error\n",stderr);
         exit(EXIT_FAILURE);
     }
-    printf("---\n");
+    
     
 
     /* このままだとi=14から始まるので0で初期化してください。*/
@@ -81,6 +81,8 @@ int main(void)
     /* 手入力したIDをscanfで受け取ってください*/
     scanf("%d",&ID_data);
     
+    printf("---\n");
+
     i=0;
     while(i<=14){
         if(detail[i].ID == ID_data){
@@ -92,7 +94,7 @@ int main(void)
             else if(detail[i].gender == 2){
                 printf("ID : %d\n",detail[i].ID);
                 printf("gender : Female\n");
-                printf("height : %lf\n",detail[i].height);
+                printf("height : %.1lf\n",detail[i].height);
             }
             return 0;
         }

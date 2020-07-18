@@ -34,8 +34,8 @@ l.84~105: 入力されたIDについて該当するものがある場合には�
 例えば，ID 45313125のデータを調べたいとき，
 
 ```
-Input the filename of sample height : ../sample/heights.csv
-Input the filename of sample ID : ../sample/IDs.csv
+input the filename of sample:../sample/heights.csv
+input the filename of sample ID:../sample/IDs.csv
 Which ID's data do you want? : 45313125
 ---
 ID : 45313125
