@@ -28,14 +28,20 @@ int main(void)
     }
 
     num_male=num_female=num_unknown=0;
+
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%d,%lf",&gender, &val);
-        if(gender==1){ num_male++;
-        }else if(gender==2){ num_female++;
-        }else{ num_unknown++;
+        if(gender==1){ 
+            num_male++;
+        }
+        else if(gender==2){ 
+            num_female++;
+        }
+        else{ 
+            num_unknown++;
         }
     }
-    num_whole = num_male+num_female+num_unknown;
+    num_whole = num_male + num_female + num_unknown;
 
     printf("================================\n");
     printf("Number of male sample : %d\n",num_male);
@@ -85,7 +91,7 @@ int choose(int n, int r)
     int i,bunbo,bunshi;
 
     bunbo=bunshi=1;
-    for(i=n;i>r;i--) bunbo *= i;
-    for(i=r;i>0;i--) bunshi *= i;
-    return bunbo/bunshi;
+    for(i=n;i>r;i--) bunshi *= i;
+    for(i=r;i>0;i--) bunbo *= i;
+    return bunshi/bunbo;
 }
